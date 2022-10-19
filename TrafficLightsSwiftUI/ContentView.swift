@@ -21,14 +21,20 @@ struct ContentView: View {
             Button {
                 changeOpacity()
             } label: {
-                Image(systemName: "Clock")
-                Text("Start")
-                    .font(.title)
-                    .foregroundColor(Color.white)
+                if opacityRed == 1 || opacityYellow == 1 || opacityGreen == 1 {
+                    Text("Next")
+                        .font(.title)
+                        .foregroundColor(Color.white)
+                } else {
+                    Text("Start")
+                        .font(.title)
+                        .foregroundColor(Color.white)
+                }
+                
             }
             .padding()
             .background(Color.brown)
-            .cornerRadius(10)
+            .cornerRadius(20)
         }
     }
     
