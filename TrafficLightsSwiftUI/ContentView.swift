@@ -49,7 +49,6 @@ struct ContentView: View {
             opacityGreen = 1.0
         } else if opacityGreen == 1.0 {
             opacityGreen = 0.5
-            opacityRed = 1.0
         }
     }
     
