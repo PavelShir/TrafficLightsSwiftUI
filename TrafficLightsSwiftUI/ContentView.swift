@@ -8,28 +8,44 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var opacityRed = 0.5
+    @State private var opacityYellow = 0.5
+    @State private var opacityGreen = 0.5
+    
     var body: some View {
         VStack {
-            ColorCircleView(circle: .red)
-            ColorCircleView(circle: .yellow)
-            ColorCircleView(circle: .green)
+            ColorCircleView(circle: .red).opacity(opacityRed)
+            ColorCircleView(circle: .yellow).opacity(opacityYellow)
+            ColorCircleView(circle: .green).opacity(opacityGreen)
             Spacer()
             Button {
-                ColorCircleView(circle: .red)
-                    .opacity(1)
+                changeOpacity()
             } label: {
                 Image(systemName: "Clock")
                 Text("Start")
                     .font(.title)
+                    .foregroundColor(Color.white)
             }
-            .cornerRadius(10)
             .padding()
-            .foregroundColor(Color.white)
-            .background(Color.background)
+            .background(Color.brown)
+            .cornerRadius(10)
         }
     }
     
-    
+    private func changeOpacity(){
+        if opacityRed < 1.0 && opacityYellow < 1.0 && opacityGreen < 1.0 {
+            opacityRed = 1.0
+        } else if opacityRed == 1.0 {
+            opacityRed = 0.5
+            opacityYellow = 1.0
+        } else if opacityYellow == 1.0 {
+            opacityYellow = 0.5
+            opacityGreen = 1.0
+        } else if opacityGreen == 1.0 {
+            opacityGreen = 0.5
+            opacityRed = 1.0
+        }
+    }
     
 }
 

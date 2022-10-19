@@ -14,7 +14,6 @@ struct ColorCircleView: View {
         VStack {
         Circle()
             .foregroundColor(circle)
-            .opacity(0.5)
             .frame(width: 150, height: 150)
             .overlay(Circle().stroke(Color.white, lineWidth: 2))
             .shadow(radius: 10)
